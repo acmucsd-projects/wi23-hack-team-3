@@ -5,7 +5,7 @@ const {authenticate} = require('@google-cloud/local-auth');
 const {google} = require('googleapis');
 
 // If modifying these scopes, delete token.json.
-const SCOPES = ['https://www.googleapis.com/auth/calendar'];
+const SCOPES = [' https://www.googleapis.com/auth/calendar'];
 // The file token.json stores the user's access and refresh tokens, and is
 // created automatically when the authorization flow completes for the first
 // time.
@@ -97,26 +97,16 @@ authorize().then(listEvents).catch(console.error);
 // Change the scope to 'https://www.googleapis.com/auth/calendar' and delete any
 // stored credentials.
 
-const oauth2Client = new google.auth.OAuth2("976248970147-hrtruc5rvjcfdrht2kogibpikhg8qnpf.apps.googleusercontent.com", "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");
-
-oauth2Client.setCredentials({
-  access_token: '4/0AWtgzh6akHg51-UNxF6890BpL0kVnLmMosveAA1SU09SHee0ADMrJ7fwbAKnGlcjRu0USg',
-  refresh_token: "1//06sFDzVGcE1dWCgYIARAAGAYSNwF-L9IrxH36VOzpqLeWt_mxdtLniUrYl1ZsIHplaMryQbCalSP8WAs1KQqYf3bUXoudaJKks8g",
-  expiry_date: '54251',
-});
-
-const calendar = google.calendar({ version: "v3", oauth2Client });
-
 const event = {
-    'summary': 'Google I/O 2023',
+    'summary': 'Google I/O 2015',
     'location': '800 Howard St., San Francisco, CA 94103',
     'description': 'A chance to hear more about Google\'s developer products.',
     'start': {
-      'dateTime': '2023-05-28T09:00:00-07:00',
+      'dateTime': '2015-05-28T09:00:00-07:00',
       'timeZone': 'America/Los_Angeles',
     },
     'end': {
-      'dateTime': '2023-05-28T17:00:00-07:00',
+      'dateTime': '2015-05-28T17:00:00-07:00',
       'timeZone': 'America/Los_Angeles',
     },
     'recurrence': [
@@ -136,7 +126,7 @@ const event = {
   };
   
   calendar.event.insert({
-    auth: oauth2Client,
+    auth: auth,
     calendarId: 'primary',
     resource: event,
   }, function(err, event) {
