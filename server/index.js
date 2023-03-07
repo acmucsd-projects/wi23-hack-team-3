@@ -2,6 +2,16 @@
 const express = require('express');
 const app = express();
 const session = require('express-session');
+const config = require('./config');
+const mongoose = require('mongoose');
+
+// connect to database
+mongoose.connect(config.databaseUrl, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true }).then(() => {
+  console.log('Connected to MongoDB database');
+});
+
 
 app.set('view engine', 'ejs');
 
