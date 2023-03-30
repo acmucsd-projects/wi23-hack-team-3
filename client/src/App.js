@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Scheduler from './components/Scheduler';
-import Toolbar from './components/Toolbar';
 import './App.css';
+
 
 const data = [
     { start_date:'2023-03-07 15:00', end_date:'2023-03-07 18:00', text:'ACM Meeting', id: 1},
@@ -26,20 +26,12 @@ class App extends Component {
     render() {
         const { currentTimeFormatState } = this.state;
         return (
-            <div>
-                <div className="tool-bar">
-                    <Toolbar
-                        timeFormatState={currentTimeFormatState}
-                        onTimeFormatStateChange={this.handleTimeFormatStateChange}
-                    />
-                </div>
-                <div className='scheduler-container'>
-                    <Scheduler
-                        events={data}
-                        timeFormatState={currentTimeFormatState}
-                        onDataUpdated={this.logDataUpdate}
-                    />
-                </div>
+            <div className='scheduler-container'>
+                <Scheduler
+                    events={data}
+                    // timeFormatState={currentTimeFormatState}
+                    onDataUpdated={this.logDataUpdate}
+                />
             </div>
         );
     }
