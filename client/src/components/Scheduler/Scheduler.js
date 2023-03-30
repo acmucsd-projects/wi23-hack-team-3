@@ -5,6 +5,7 @@ import 'dhtmlx-scheduler/codebase/dhtmlxscheduler_material.css';
 const scheduler = window.scheduler;
 
 export default class Scheduler extends Component {
+    
 
     initSchedulerEvents() {
         if (scheduler._$initialized) {
@@ -53,6 +54,7 @@ export default class Scheduler extends Component {
         return this.props.timeFormatState !== nextProps.timeFormatState;
     }
 
+    
     componentDidUpdate() {
         scheduler.render();
     }
@@ -70,6 +72,8 @@ export default class Scheduler extends Component {
                 ref={ (input) => { this.schedulerContainer = input } }
                 style={ { width: '100%', height: '95%' } }
             ></div>
-        );
+            
+
+        )
     }
 }

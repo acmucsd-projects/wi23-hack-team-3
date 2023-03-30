@@ -23,7 +23,45 @@ class App extends Component {
         });
     }
 
+
     render() {
+        //Create select element
+var select = document.createElement("select");
+select.name = "menu";
+
+//Create options and add to select element
+var options = ["ACM Hack Team", "Volleyball", "Tritones"];
+for (var i = 0; i < options.length; i++) {
+  var option = document.createElement("option");
+  option.value = options[i];
+  option.text = options[i];
+  select.appendChild(option);
+}
+
+//Append select element to body
+var body = document.getElementsByTagName("body")[0];
+body.appendChild(select);
+
+//Add event listener to select element
+select.addEventListener("change", function() {
+  var selectedOption = select.options[select.selectedIndex];
+  alert(selectedOption.value + " was selected");
+});
+
+//keeping it in top left corner
+select.style.position = "fixed";
+select.style.top = "10px";
+select.style.left = "10px";
+select.style.padding = "5px";
+select.style.fontSize = "16px";
+
+//Add CSS styles for dropdown menu
+select.style.backgroundColor = "white";
+select.style.border = "1px solid gray";
+select.style.borderRadius = "4px";
+select.style.boxShadow = "0px 2px 4px rgba(0, 0, 0, 0.2)";
+select.style.width = "150px";
+
         const { currentTimeFormatState } = this.state;
         return (
             <div className='scheduler-container'>
