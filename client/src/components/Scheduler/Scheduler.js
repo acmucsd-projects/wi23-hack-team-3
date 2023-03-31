@@ -45,7 +45,7 @@ export default class Scheduler extends Component {
         this.initSchedulerEvents();
 
         const { events } = this.props;
-        scheduler.init(this.schedulerContainer);
+        scheduler.init(this.schedulerContainer, new Date(2023, 2, 10));
         scheduler.clearAll();
         scheduler.parse(events);
     }
@@ -72,8 +72,6 @@ export default class Scheduler extends Component {
                 ref={ (input) => { this.schedulerContainer = input } }
                 style={ { width: '100%', height: '95%' } }
             ></div>
-            
-
         )
     }
 }
