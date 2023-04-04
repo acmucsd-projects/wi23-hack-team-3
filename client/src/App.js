@@ -3,7 +3,6 @@ import {Home} from './Components/Home';
 import Profile from './Components/Profile';
 import {Navbar} from './Components/Navbar';
 import {Friends} from './Components/Friends';
-import { Dropdown, Option } from "./Components/Dropdown";
 import React, { useState } from "react";
 
 function App() {
