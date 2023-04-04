@@ -97,4 +97,15 @@
   }
   
   
-  
+  .searchbar {
+    margin: 0 auto;
+    width: fit-content;
+    position: relative;
+    top: 10px;
+  }
+
+  .searchbar ol{
+    position:relative;
+    list-style: none;
+    left:50px;
+  }
