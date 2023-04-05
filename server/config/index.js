@@ -6,4 +6,5 @@ const config = {
     PORT: process.env.PORT,
     databaseUrl: process.env.DATABASE_URL,
 }
-modfule.exports = config;
+
+module.exports = config;

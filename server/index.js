@@ -1,76 +1,22 @@
-
 const express = require('express');
-const app = express();
-const session = require('express-session');
-const config = require('./config');
+const config = require('./config'); 
+const cors = require('cors');
+const router = require('./api');
+const server = express();
 const mongoose = require('mongoose');
 
-// connect to database
+server.use(cors());
+server.use(express.json());
+server.use(express.urlencoded({ extended: true }));
+
+server.use('/api', router);
+
 mongoose.connect(config.databaseUrl, {
     useNewUrlParser: true,
     useUnifiedTopology: true }).then(() => {
-  console.log('Connected to MongoDB database');
+        console.log('Connected to MongoDB database');
 });
 
-
-app.set('view engine', 'ejs');
-
-app.use(session({
-  resave: false,
-  saveUninitialized: true,
-  secret: 'SECRET' 
-}));
-
-app.get('/', function(req, res) {
-  res.render('pages/auth');
+server.listen(config.PORT, () => {
+    console.log('Server started on port ' + config.PORT);
 });
-
-const port = process.env.PORT || 3000;
-app.listen(port , () => console.log('App listening on port ' + port));
-
-/*  PASSPORT SETUP  */
-
-const passport = require('passport');
-var userProfile;
-
-app.use(passport.initialize());
-app.use(passport.session());
-
-app.set('view engine', 'ejs');
-
-app.get('/success', (req, res) => res.send(userProfile));
-app.get('/error', (req, res) => res.send("error logging in"));
-
-passport.serializeUser(function(user, cb) {
-  cb(null, user);
-});
-
-passport.deserializeUser(function(obj, cb) {
-  cb(null, obj);
-});
-
-/*  Google AUTH  */
- 
-const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
-const GOOGLE_CLIENT_ID = '598433507636-53p047nmkrdcv4jf1mj359df6q8o47ig.apps.googleusercontent.com';
-const GOOGLE_CLIENT_SECRET = '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';
-passport.use(new GoogleStrategy({
-    clientID: GOOGLE_CLIENT_ID,
-    clientSecret: GOOGLE_CLIENT_SECRET,
-    callbackURL: "http://localhost:3000/auth/google/callback"
-  },
-  function(accessToken, refreshToken, profile, done) {
-      userProfile=profile;
-      return done(null, userProfile);
-  }
-));
- 
-app.get('/auth/google', 
-  passport.authenticate('google', { scope : ['profile', 'email'] }));
- 
-app.get('/auth/google/callback', 
-  passport.authenticate('google', { failureRedirect: '/error' }),
-  function(req, res) {
-    // Successful authentication, redirect success.
-    res.redirect('/success');
-  });
