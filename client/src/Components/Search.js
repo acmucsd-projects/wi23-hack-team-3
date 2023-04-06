@@ -13,6 +13,18 @@ export const Search = () => {
 
     const [isVisible, setIsVisible] = useState(false);
 
+    const [inputValue, setInputValue] = useState('');
+
+    const handleInputChange = (event) => {
+      setInputValue(event.target.value);
+    };
+
+    const handleSubmit = (event) => {
+      event.preventDefault();
+      setFilteredList([...filteredList, inputValue]);
+      setInputValue('');
+    };
+
     const filterBySearch = (event) => {
         const query = event.target.value;
 
@@ -32,6 +44,12 @@ export const Search = () => {
         {isVisible && (<ol className = "fList">
             {filteredList.map((item,index) => (<li key={index}><a className = "linker" href="calendar">{item}</a></li>))}
         </ol>)}
+        </div>
+        <div className = "addf">
+        <form onSubmit={handleSubmit}>
+        <input type="text" value={inputValue} onChange={handleInputChange} />
+        <button type="submit">Add Friend</button>
+        </form>
         </div>
         </>
      );

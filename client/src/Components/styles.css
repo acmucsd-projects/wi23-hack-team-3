@@ -119,3 +119,41 @@
   a.linker:hover{
     text-decoration: underline;
   }
+
+  .addf{
+    margin: 0 auto;
+    width: fit-content;
+    position: relative;
+    top: 100px;
+  }
+
+  addf.form {
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+  }
+  
+  addf.input[type="text"] {
+    padding: 10px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  font-size: 16px;
+  }
+  
+  addf.button[type="submit"] {
+    background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  font-size: 16px;
+  cursor: pointer;
+  }
+  
+  addf.button[type="submit"]:hover {
+    background-color: #0062cc;
+  }
+  
