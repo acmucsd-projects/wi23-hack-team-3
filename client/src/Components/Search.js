@@ -2,14 +2,11 @@ import React, { useState } from 'react';
 
 export const Search = () => {
     const itemList = [
-        "Apple",
-        "Orange",
-        "Banana",
-        "Cherry",
-        "Milk",
-        "Peanuts",
-        "Butter",
-        "Tomato"
+        "Peter",
+        "Charisse",
+        "Aditi",
+        "Zed",
+        "Andrew"
       ];
 
     const [filteredList, setFilteredList] = new useState(itemList);

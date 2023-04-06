@@ -22,19 +22,19 @@ function EventForm() {
         value={name}
         onChange={(event) => setName(event.target.value)}
       />
-      <label htmlFor="time">Event Time:</label>
+      <label htmlFor="time">Event Start Time:</label>
       <input
         type="time"
         id="time"
         value={time}
         onChange={(event) => setTime(event.target.value)}
       />
-      <label htmlFor="date">Date:</label>
+      <label htmlFor="time">Event End Time:</label>
       <input
-        type="date"
-        id="date"
-        value={date}
-        onChange={(event) => setDate(event.target.value)}
+        type="time"
+        id="time"
+        value={time}
+        onChange={(event) => setTime(event.target.value)}
       />
       <button type="submit">Submit</button>
     </form>

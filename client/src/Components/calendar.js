@@ -1,11 +1,13 @@
 import Scheduler from './Scheduler';
 
 const data = [
-    { start_date:'2023-03-07 15:00', end_date:'2023-03-07 18:00', text:'ACM Meeting', id: 1},
-    { start_date:'2023-03-10 0:00', end_date:'2023-03-10 12:00', text:'Closer to Closer release', id: 2 },
-    { start_date:'2023-03-12 7:00', end_date:'2023-03-12 10:00', text:'Church', id: 3 },
-    { start_date:'2023-03-12 10:00', end_date:'2023-03-12 12:00', text:'Brunch so yummy', id: 4 },
-    { start_date:'2023-03-9 18:00', end_date:'2023-03-9 20:00', text:'CSE 21 BIG QUIZZ', id: 5 }
+    { start_date:'2023-03-07 10:00', end_date:'2023-03-07 11:00', text:'Club Meeting', id: 1},
+    { start_date:'2023-03-11 10:00', end_date:'2023-03-11 11:00', text:'Library Study', id: 2 },
+    { start_date:'2023-03-12 7:00', end_date:'2023-03-12 10:00', text:'Gym', id: 3 },
+    { start_date:'2023-03-12 8:00', end_date:'2023-03-12 9:00', text:'Breakfast', id: 4 },
+    { start_date:'2023-03-06 10:00', end_date:'2023-03-06 13:00', text:'Writing', id: 5},
+    { start_date:'2023-03-08 13:00', end_date:'2023-03-08 15:00', text:'Math', id: 6 },
+    { start_date:'2023-03-10 7:00', end_date:'2023-03-10 10:00', text:'Study', id: 7 }
 ];
 
 export const Calendar = () => {
