@@ -5,6 +5,7 @@ import {Navbar} from './Components/Navbar';
 import {Friends} from './Components/Friends';
 
 import React, { useState } from "react";
+import { Calendar } from './Components/calendar';
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
         <Route path='/' element={<Home />}/>
         <Route path = 'profile' element = {<Profile />}/>
         <Route path = 'friends' element = {<Friends />}/>
+        <Route path = 'calendar' element = {<Calendar/>}/>
       </Routes>
     </>
   );

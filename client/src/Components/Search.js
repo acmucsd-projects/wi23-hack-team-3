@@ -33,7 +33,7 @@ export const Search = () => {
         <div className = "searchbar">
         <input id = "searchBar" onChange = {filterBySearch} onClick={()=>setIsVisible(true)}/>
         {isVisible && (<ol className = "fList">
-            {filteredList.map((item,index) => (<li key={index}><a href="calendar">{item}</a></li>))}
+            {filteredList.map((item,index) => (<li key={index}><a className = "linker" href="calendar">{item}</a></li>))}
         </ol>)}
         </div>
         </>

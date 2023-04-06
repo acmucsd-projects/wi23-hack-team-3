@@ -109,3 +109,13 @@
     list-style: none;
     left:50px;
   }
+
+  a.linker{
+    color: #0077cc;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  a.linker:hover{
+    text-decoration: underline;
+  }
